@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Form Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="image"></div>
+            <div class="text">
+                Start for free & get <br>
+                attractive offers today!
+            </div>
+        </div>
+        <form id="form">
+            <div class="title">Get Started</div>
+            <div>
+                <label for="username">User Name</label>
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" id="username" placeholder="Joy Shaheb">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <i class="far fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="abc@gmail.com">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Password here">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+                <div id="password-strength" class="password-strength">
+                    <p>Password must contain:</p>
+                    <ul>
+                        <li id="lowercase" class="requirement">
+                            <i class="fas fa-times"></i> A lowercase letter
+                        </li>
+                        <li id="uppercase" class="requirement">
+                            <i class="fas fa-times"></i> A capital (uppercase) letter
+                        </li>
+                        <li id="number" class="requirement">
+                            <i class="fas fa-times"></i> A number
+                        </li>
+                        <li id="length" class="requirement">
+                            <i class="fas fa-times"></i> Minimum 8 characters
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <label for="confirm-password">Confirm Password</label>
+                <i class="fas fa-lock"></i>
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+                <div id="password-match" class="password-match">
+                    <p id="match-text">
+                        <i class="fas fa-times"></i> Passwords do not match
+                    </p>
+                </div>
+            </div>
+            <button id="btn" type="submit">Submit</button>
+            <!-- Кнопка для отправки подтверждения на почту -->
+            <button id="send-mail-btn" type="button" class="hidden" onclick="sendMail()">
+                <i class="far fa-envelope"></i> Send Confirmation Email
+            </button>
+        </form>
+    </div>
+    <script src="main.js"></script>
+    <script src="mail.js"></script>
+</body>
+</html>

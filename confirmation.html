@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Confirmation</title>
+</head>
+<body>
+    <h1>Registration Confirmation</h1>
+    
+    <div id="data">
+        <!-- Данные появятся здесь -->
+    </div>
+    
+    <br>
+    <button onclick="sendMail()">Send Confirmation Email</button>
+    <button onclick="window.location.href='index.html'">Back to Form</button>
+    
+    <!-- Подключаем mail.js для функции sendMail -->
+    <script src="mail.js"></script>
+    
+    <script>
+        // Получаем данные из localStorage
+        let data = JSON.parse(localStorage.getItem('registrationData'));
+        
+        if (!data) {
+            document.getElementById('data').innerHTML = '<p>No registration data found.</p>';
+        } else {
+            // Форматируем дату
+            const date = new Date(data.timestamp);
+            const formattedDate = date.toLocaleString();
+            
+            // Отображаем данные
+            document.getElementById('data').innerHTML = `
+                <p><strong>Username:</strong> ${data.username || 'Not provided'}</p>
+                <p><strong>Email:</strong> ${data.email || 'Not provided'}</p>
+                <p><strong>Registered:</strong> ${formattedDate}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
